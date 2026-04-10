@@ -2,8 +2,8 @@
 
 export default [
    {
-      content: `  var widgets = ##;
-  var gadgets = ##;
+      content: `  let widgets = ##;
+  let gadgets = ##;
   
   if(widgets > gadgets){
     widgets = widgets - gadgets;
@@ -11,8 +11,8 @@ export default [
       solveFor: 'widgets',
    },
    {
-      content: `  var count = ##;
-  var howMany = "a few";
+      content: `  const count = ##;
+  let howMany = "a few";
 
   if(count >= ##){
     howMany = "So many!"
@@ -20,8 +20,8 @@ export default [
       solveFor: 'howMany',
    },
    {
-      content: `   var age = ##;
-    var canVote;
+      content: `   let age = ##;
+    let canVote;
 
     if(age >= 18){
       canVote = true;
@@ -33,8 +33,8 @@ export default [
    },
    {
       content: `
-    var babyStartedWalking = #-#; //months old
-    var howTheyDoin;
+    const babyStartedWalking = #-#; //months old
+    let howTheyDoin;
 
     if(babyStartedWalking < 8){
       howTheyDoin = "Dang baby, how you doin' that??";
@@ -49,8 +49,8 @@ export default [
       solveFor: 'howTheyDoin',
    },
    {
-      content: `    var inchesOfSnow = ##;
-    var schoolStatus;
+      content: `    let inchesOfSnow = ##;
+    let schoolStatus;
 
     if(inchesOfSnow >= 5){
       schoolStatus = "Cancel";
@@ -64,8 +64,8 @@ export default [
       solveFor: 'schoolStatus',
    },
    {
-      content: `    var inchesOfSnow = ##;
-    var schoolStatus;
+      content: `    let inchesOfSnow = ##;
+    let schoolStatus;
 
     if(inchesOfSnow < 1){
       schoolStatus = "Open";
@@ -79,9 +79,9 @@ export default [
       solveFor: 'schoolStatus',
    },
    {
-      content: `    var inchesOfSnow = ##;
-    var iceAmount = #.# //fraction of inch ice
-    var schoolStatus;
+      content: `    let inchesOfSnow = ##;
+    let iceAmount = #.# //fraction of inch ice
+    let schoolStatus;
 
     if(inchesOfSnow >= 5){
       schoolStatus = "Snow - Cancel";
@@ -100,9 +100,9 @@ export default [
       solveFor: 'schoolStatus',
    },
    {
-      content: `    var inchesOfSnow = ##;
-    var iceAmount = #.# //fraction of inch ice
-    var schoolStatus;
+      content: `    let inchesOfSnow = ##;
+    let iceAmount = #.#; //fraction of inch ice
+    let schoolStatus;
 
     if(inchesOfSnow >= 5){
       schoolStatus = "Snow - Cancel";
@@ -126,9 +126,9 @@ export default [
       solveFor: 'schoolStatus',
    },
    {
-      content: `    var inchesOfSnow = ##;
-    var iceAmount = #.# //fraction of inch ice
-    var schoolStatus;
+      content: `    let inchesOfSnow = ##;
+    let iceAmount = #.#; //fraction of inch ice
+    let schoolStatus;
 
     if(inchesOfSnow >= 5){
       schoolStatus = "Snow - Cancel";
@@ -145,7 +145,7 @@ export default [
       solveFor: 'schoolStatus',
    },
    {
-      content: `    var x = ## + 3;
+      content: `    let x = ## + 3;
 
     if(x > 5){
       x = 10;
@@ -153,7 +153,7 @@ export default [
       solveFor: 'x',
    },
    {
-      content: `    var x = ## + 3;
+      content: `    let x = ## + 3;
 
     if(x > 5){
       x = 10;
@@ -165,9 +165,9 @@ export default [
       solveFor: 'x',
    },
    {
-      content: `    var age = ## + 7;
-    var canHuntDeer = age > 12;
-    var answer = "No";
+      content: `    let age = ## + 7;
+    let canHuntDeer = age > 12;
+    let answer = "No";
 
     if(canHuntDeer){
       answer = "Yes";
@@ -175,10 +175,10 @@ export default [
       solveFor: 'answer',
    },
    {
-      content: `    var age = ## + 7;
-    var canRideBike = **;
-    var bigKid = age > 10 && canRideBike;
-    var answer = "No";
+      content: `    let age = ## + 7;
+    let canRideBike = **;
+    let bigKid = age > 10 && canRideBike;
+    let answer = "No";
  
     `,
       solveFor: 'answer',
@@ -187,7 +187,7 @@ export default [
       content: `  
     
     
-    var yay = "All done. Nice work!"`,
+    var let = "All done. Nice work!"`,
       solveFor: 'yay',
    },
 ];
