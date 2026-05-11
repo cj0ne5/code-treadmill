@@ -3,43 +3,43 @@ export default [
    {
       content: `
        function doThisThing(num){
-          return num + num
+          return num + num;
        }
        `,
       solveFor: 'doThisThing(##)',
    },
    {
       content: `
-      var num = ##
+      let num = ##;
        function doThisThing(){
-          return num + num
+          return num + num;
        }
        `,
       solveFor: 'doThisThing()',
    },
    {
       content: `
-      var count = ##;
+      let count = ##;
        function doThisThing(num){
-          return num + num
+          return num + num;
        }
        `,
       solveFor: 'doThisThing(##)',
    },
    {
       content: `
-      var num = ##;
+      let num = ##;
 
        function doThisThing(num){
           // i'm bored
-          return num + num
+          return num + num;
        }
        `,
       solveFor: 'num',
    },
    {
       content: `
-      var num = #-#;
+      let num = #-#;
 
        function doThisThing(num){
           // fire the person who named this parameter num
@@ -50,7 +50,7 @@ export default [
    },
    {
       content: `
-      var num = ##;
+      let num = ##;
        function doThisThing(){
           //not sure why you'd ever do this... but...
           var num = ##;
@@ -60,10 +60,10 @@ export default [
    },
    {
       content: `
-      var num = #-#;
+      let num = #-#;
        function doThisThing(num){
           // which num is it?
-          num = num + num
+          num = num + num;
           return num;
        }
        `,
@@ -71,90 +71,90 @@ export default [
    },
    {
       content: `
-      var num = ##;
+      let num = ##;
        function doThisThing(){
           // you'd probably never do this but...
           var num = #-#;
           // which num is it?
-          return num
+          return num;
        }
        `,
       solveFor: 'doThisThing()',
    },
    {
       content: `
-      var num = #-#;
+      let num = #-#;
        function doThisThing(){
           var num = ##;
-          return num * num
+          return num * num;
        }
        `,
       solveFor: 'doThisThing()',
    },
    {
-      content: `  var num = ##;
+      content: `  let num = ##;
    function doThisThing(){
-      num += ##
+      num += ##;
    }
-   doThisThing()
+   doThisThing();
    `,
       solveFor: 'num',
    },
    {
-      content: `  var num = #-#;
+      content: `  let num = #-#;
     function doThisThing(){
-       num += ##
+       num += ##;
     }
     `,
       solveFor: 'num',
    },
    {
-      content: `  var num = ##;
+      content: `  let num = ##;
    function doThisThing(){
-      num += ##
+      num += ##;
    }
-   doThisThing()
-   doThisThing()
+   doThisThing();
+   doThisThing();
    `,
       solveFor: 'num',
    },
    {
-      content: `  var num = ##;
+      content: `  let num = ##;
    function doSomething(){
-      num += ##
+      num += ##;
    }
    function doSomethingElse(){
-      num -= ##
+      num -= ##;
    }
-   doSomething()
-   doSomethingElse()
-   doSomething()
+   doSomething();
+   doSomethingElse();
+   doSomething();
    `,
       solveFor: 'num',
    },
    {
-      content: `  var num = ##;
+      content: `  let num = ##;
    function addTen(){
-      num += 10
-      subtractFive()
+      num += 10;
+      subtractFive();
    }
    function subtractFive(){
-      num -= 5
+      num -= 5;
    }
-   addTen()
+   addTen();
    `,
       solveFor: 'num',
    },
    {
-      content: `  var num = ##;
+      content: `  let num = ##;
    function addTen(){
-      num += 10
-      subtractFive()
+      num += 10;
+      subtractFive();
    }
    function subtractFive(){
-      num -= 5
+      num -= 5;
    }
-   subtractFive()
+   subtractFive();
    `,
       solveFor: 'num',
    },
@@ -172,9 +172,9 @@ export default [
       return thing.length;
    }
    function whoKnows(){
-      var you = ^^
-      var yourFriend = ^^
-      return you + yourFriend
+      let you = ^^;
+      let yourFriend = ^^;
+      return you + yourFriend;
    }
    `,
       solveFor: 'whatDoWeDo(whoKnows())',
@@ -182,25 +182,25 @@ export default [
    {
       content: `
    function timeToFeed(person, pet){
-      return person + "\'s " + pet
+      return person + "\'s " + pet;
    }
    `,
       solveFor: 'timeToFeed(^^, @@)',
    },
    {
       content: `
-      var age = #-#
+      let age = #-#
    function howOld(person){
       // this would be dumb to do...
-      var age = ##
+      let age = ##;
       // ...but...
-      return person + " is " + age
+      return person + " is " + age;
    }
    `,
       solveFor: 'howOld(^^)',
    },
    {
-      content: `  var num = #-#;
+      content: `  let num = #-#;
    function doThisThing(){
       return num - ##;
    }
@@ -220,7 +220,7 @@ export default [
    {
       content: `// multiple returns is pretty normal
 
-      var count = #-#;
+      let count = #-#;
 
    function whatsItDo(name){
       if(name.length >= 5){
@@ -235,7 +235,7 @@ export default [
    {
       content: `
 
-      var count = #-#;
+      let count = #-#;
 
    function andThisOneToo(name){
       if(name.length >= 5){
@@ -244,7 +244,7 @@ export default [
       return count;
    }
    // This'd be for using answer later, multiple times
-   var answer = andThisOneToo($$)
+   let answer = andThisOneToo($$)
 
    `,
       solveFor: 'answer',
@@ -252,7 +252,7 @@ export default [
    {
       content: `
       
-      var total = #-#;
+      let total = #-#;
 
    function andThis(thing1, thing2){
       if(thing1.length >= 5){
@@ -262,10 +262,10 @@ export default [
    }
 
    function whatsThis(amt){
-      return "$" + amt + "k"
+      return "$" + amt + "k";
    }
 
-   var answer = whatsThis(andThis(@@, @@))
+   let answer = whatsThis(andThis(@@, @@))
 
    `,
       solveFor: 'answer',

@@ -1,159 +1,159 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default [
   {
-    content: `  var num = ##;`,
+    content: `  let num = ##;`,
     solveFor: "num",
   },
   {
-    content: `  var count = ##;
+    content: `  let count = ##;
    count = count + ##;`,
     solveFor: "count",
   },
   {
-    content: `  var x = #-#;
+    content: `  let x = #-#;
           x = x - ##;     `,
     solveFor: "x",
   },
   {
-    content: `  var counter = ##;
+    content: `  let counter = ##;
          counter += ##;    `,
     solveFor: "counter",
   },
   {
-    content: `  var counter = ##;
+    content: `  let counter = ##;
          counter++;    `,
     solveFor: "counter",
   },
   {
-    content: `  var counter = ##;
+    content: `  let counter = ##;
     counter--;    `,
     solveFor: "counter",
   },
   {
-    content: `  var i = ##;
-         i -= ##;    ;
+    content: `  let i = ##;
+         i -= ##;    
              `,
     solveFor: "i",
   },
   {
-    content: `  var a = ##;
-          var b = ##
-          b = a
+    content: `  let a = ##;
+          let b = ##;
+          b = a;
           `,
     solveFor: "b",
   },
   {
-    content: `  var num1 = ##;
-          var num2 = ##
-          num1 = num2
+    content: `  let num1 = ##;
+          let num2 = ##;
+          num1 = num2;
           `,
     solveFor: "num1",
   },
   {
-    content: `  var i = ##;
-          var j = ##
-          i = i + j
+    content: `  let i = ##;
+          let j = ##;
+          i = i + j;
           `,
     solveFor: "i",
   },
   {
-    content: `  var x = ##;
-          var y = ##
-          x += y
+    content: `  let x = ##;
+          let y = ##;
+          x += y;
           `,
     solveFor: "x",
   },
   {
-    content: `  var a = ##;
-          var b = ##
-          var c;
-          c = a
-          a = b
-          b = c
+    content: `  let a = ##;
+          let b = ##;
+          let c;
+          c = a;
+          a = b;
+          b = c;
           `,
     solveFor: "c",
   },
   {
-    content: `  var a = ##;
-          var b = ##
-          var c;
-          c = a
-          a = b
-          b = c
+    content: `  let a = ##;
+          let b = ##;
+          let c;
+          c = a;
+          a = b;
+          b = c;
           `,
     solveFor: "a",
   },
   {
-    content: `  var a = ##;
-          var b = ##
-          var c;
-          c = a
-          a = b
-          b = c
+    content: `  let a = ##;
+          let b = ##;
+          let c;
+          c = a;
+          a = b;
+          b = c;
           `,
     solveFor: "b",
   },
   {
-    content: `  var radius = ##;
-         var diameter = radius * 2
+    content: `  let radius = ##;
+         let diameter = radius * 2
          `,
     solveFor: "diameter",
   },
   {
     content: `
-       var r = #-#
-       var s = r/2
-       r = s
-       r *= 2
+       let r = #-#;
+       let s = r/2;
+       r = s;
+       r *= 2;
          `,
     solveFor: "r",
   },
   {
     content: `
-       var t;
-       var u = ##
-       var v = @@
-       t = v + u
+       let t;
+       let u = ##;
+       let v = @@;
+       t = v + u;
          `,
     solveFor: "t",
   },
   {
     content: `
-        var t;
-        var u = ##
-        var v = @@
-        t = v + u
+        let t;
+        let u = ##;
+        let v = @@;
+        t = v + u;
           `,
     solveFor: "t",
   },
   {
     content: `
-       var result = $$ + " " + @@
+       let result = $$ + " " + @@;
          `,
     solveFor: "result",
   },
   {
     content: `
-       var adjective = $$
-       var animal = @@
-       var result = adjective + " " + animal
+       let adjective = $$;
+       let animal = @@;
+       let result = adjective + " " + animal;
          `,
     solveFor: "result",
   },
   {
     content: `
-      var adjective = $$
-      var animal = @@
-      var person = ^^
-      var result = adjective + " " + person
+      let adjective = $$;
+      let animal = @@;
+      let person = ^^;
+      let result = adjective + " " + person;
         `,
     solveFor: "result",
   },
   {
     content: `
-      var person = ^^
-      var animal = @@
-      var result = person + " has an " + animal
+      let person = ^^;
+      let animal = @@;
+      let result = person + " has an " + animal;
         `,
     solveFor: "result",
   },

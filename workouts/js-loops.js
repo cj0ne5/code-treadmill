@@ -2,7 +2,7 @@
 export default [
    {
       content: `
-        var num = 0;
+        let num = 0;
 
         while(num < #-#){
           num = num +1
@@ -13,10 +13,10 @@ export default [
    },
    {
       content: `
-     var num = #-#;
+     let num = #-#;
 
      while(num < ##){
-       num = num - 1
+       num = num - 1;
      }
 
       `,
@@ -24,10 +24,10 @@ export default [
    },
    {
       content: `
-     var num = #-#;
+     let num = #-#;
 
      while(num >= ##){
-       num = num - 1
+       num = num - 1;
      }
 
       `,
@@ -35,10 +35,10 @@ export default [
    },
    {
       content: `
-     var num = #-#;
+     let num = #-#;
 
      while(num > ##){
-       num = num - 1
+       num = num - 1;
      }
 
       `,
@@ -46,10 +46,10 @@ export default [
    },
    {
       content: `
-     var num = 15;
+     let num = 15;
 
      while(num == 15){
-       num = num - ##
+       num = num - ##;
      }
 
       `,
@@ -57,11 +57,11 @@ export default [
    },
    {
       content: `
-       var num = ##;
+       let num = ##;
        count = 0;
        while(num < #-#){
-         num = num + 1
-         count = count + 2
+         num = num + 1;
+         count = count + 2;
        }
 
         `,
@@ -69,9 +69,9 @@ export default [
    },
    {
       content: `
-     var count = ##;
-    for(var i = 0; i < ##; i++){
-     count = count + 1
+     let count = ##;
+    for(let i = 0; i < ##; i++){
+     count = count + 1;
     }
 
       `,
@@ -80,9 +80,9 @@ export default [
 
    {
       content: `
-     var count = #-#;
-    for(var i = 0; i < ##; i++){
-     count = count - 1
+     let count = #-#;
+    for(let i = 0; i < ##; i++){
+     count = count - 1;
     }
 
       `,
@@ -90,10 +90,10 @@ export default [
    },
    {
       content: `
-     var count = #-#;
-     var amt = ##
-    for(var i = 0; i < 3; i++){
-     count = count - amt
+     let count = #-#;
+     let amt = ##;
+    for(let i = 0; i < 3; i++){
+     count = count - amt;
     }
 
       `,
@@ -101,11 +101,11 @@ export default [
    },
    {
       content: `
-     var count = #-#;
-     var amt = ##
-    for(var i = 0; i < 3; i++){
+     let count = #-#;
+     let amt = ##;
+    for(let i = 0; i < 3; i++){
       if(count > ##){
-        count = count - amt
+        count = count - amt;
       }
 
     }
@@ -115,14 +115,14 @@ export default [
    },
    {
       content: `
-     var count = #-#;
-     var amt = ##
-    for(var i = 0; i < 3; i++){
+     let count = #-#;
+     let amt = ##;
+    for(let i = 0; i < 3; i++){
      if(count > #-#){
-       count = count - amt
+       count = count - amt;
      }
      else {
-       count = count + 1
+       count = count + 1;
      }
     }
 
@@ -131,14 +131,14 @@ export default [
    },
    {
       content: `
-     var count = #-#;
-     var amt = ##
-    for(var i = 0; i < 3; i++){
+     let count = #-#;
+     let amt = ##;
+    for(let i = 0; i < 3; i++){
      if(count > #-#){
-       count = count - amt
+       count = count - amt;
      }
      else {
-       count = count + 1
+       count = count + 1;
      }
     }
 
@@ -147,9 +147,9 @@ export default [
    },
    {
       content: `
-  var count = 0;
- for(var i = 0; i < 3000; i++){
-  count = count + 1
+  let count = 0;
+ for(let i = 0; i < 3000; i++){
+  count = count + 1;
  }
 
    `,

@@ -3,7 +3,7 @@
 export default [
    {
       content: `
-               var names = [^^, ^^, ^^]
+               const names = [^^, ^^, ^^];
 
                `,
       solveFor: 'names.length',
@@ -12,7 +12,7 @@ export default [
       content: `
          // zero is actually the first number
 
-               var ages = [##, ##, ##]
+               const ages = [##, ##, ##];
 
                `,
       solveFor: 'ages[0]',
@@ -20,37 +20,37 @@ export default [
    {
       content: `
 
-                  var letters = [~~, ~~, ~~]
+                  const letters = [~~, ~~, ~~];
 
                   `,
       solveFor: 'letters[1]',
    },
    {
       content: `
-               var weights = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#]
+               const weights = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#]
 
                `,
       solveFor: 'weights[##]',
    },
    {
       content: `
-               var names = [^^, ^^, ^^]
+               const names = [^^, ^^, ^^];
 
                `,
       solveFor: 'names[0].length',
    },
    {
       content: `
-                  var votes = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#]
+                  const votes = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#];
 
-                  var result = votes[0] + votes[1]
+                  let result = votes[0] + votes[1];
 
                   `,
       solveFor: 'result',
    },
    {
       content: `
-                     var names = [^^, ^^, ^^]
+                     const names = [^^, ^^, ^^];
 
                      `,
       solveFor: 'names[names.length - 1]',
@@ -59,19 +59,19 @@ export default [
       content: `
          // sometimes .length means different things
 
-                  var names = [^^, ^^, ^^]
+                  const names = [^^, ^^, ^^];
 
                   `,
       solveFor: 'names[names.length - 1].length',
    },
    {
       content: `
-                  var wildBeasts = [@@, @@, @@]
-                  var gentlePets = [@@, @@, @@]
+                  const wildBeasts = [@@, @@, @@];
+                  const gentlePets = [@@, @@, @@];
 
-                  var temp = wildBeasts[1]
-                  wildBeasts[1] = gentlePets[2]
-                  gentlePets[2] = temp
+                  let temp = wildBeasts[1];
+                  wildBeasts[1] = gentlePets[2];
+                  gentlePets[2] = temp;
 
                   `,
       solveFor: 'wildBeasts[1]',
@@ -79,15 +79,15 @@ export default [
    {
       content: `
 
-                     var descriptions = [$$, $$, $$]
-                     descriptions[descriptions.length] = $$
+                     const descriptions = [$$, $$, $$];
+                     descriptions[descriptions.length] = $$;
 
                      `,
       solveFor: 'descriptions[3]',
    },
    {
       content: `
-                  var votes = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#,#-#, #-#, #-#]
+                  const votes = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#,#-#, #-#, #-#];
 
                   `,
       solveFor: 'votes.indexOf(#-#)',
@@ -95,8 +95,8 @@ export default [
    {
       content: `
 
-                     var descriptions = [$$, $$, $$]
-                     descriptions.push($$)
+                     const descriptions = [$$, $$, $$];
+                     descriptions.push($$);
 
                      `,
       solveFor: 'descriptions[3]',
@@ -104,144 +104,144 @@ export default [
    {
       content: `
 
-                     var descriptions = [$$, $$, $$, $$]
-                     descriptions.push($$)
+                     const descriptions = [$$, $$, $$, $$];
+                     descriptions.push($$);
 
                      `,
       solveFor: 'descriptions.length',
    },
    {
       content: `
-                  var scores = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#]
-                  var result = Math.max(...scores)
+                  const scores = [#-#, #-#, #-#, #-#, #-#, #-#, #-#, #-#];
+                  let result = Math.max(...scores);
 
                   `,
       solveFor: 'result',
    },
    {
       content: `
-                  var scores = [#-#, #-#, #-#, #-#, #-#, #-#, #-#]
-                  var result = Math.min(...scores)
+                  const scores = [#-#, #-#, #-#, #-#, #-#, #-#, #-#];
+                  let result = Math.min(...scores);
 
                   `,
       solveFor: 'scores.indexOf(result)',
    },
    {
       content: `
-                     var veterinaryWaitingRoom = [@@, @@, @@, @@, @@, @@]
-                     veterinaryWaitingRoom.pop()
+                     const veterinaryWaitingRoom = [@@, @@, @@, @@, @@, @@];
+                     veterinaryWaitingRoom.pop();
 
                      `,
       solveFor: 'veterinaryWaitingRoom.length',
    },
    {
       content: `
-                     var stillWaiting = [@@, @@, @@, @@, @@, @@, @@]
-                     stillWaiting.pop()
+                     const stillWaiting = [@@, @@, @@, @@, @@, @@, @@];
+                     stillWaiting.pop();
 
                      `,
       solveFor: 'stillWaiting[stillWaiting.length-1]',
    },
    {
       content: `
-                  var naughtyList = [^^, ^^, ^^, ^^]
-                  var hottyList = [^^, ^^, ^^]
-                  var naughtyHottyList = naughtyList.concat(hottyList)
+                  const naughtyList = [^^, ^^, ^^, ^^];
+                  const hottyList = [^^, ^^, ^^];
+                  let naughtyHottyList = naughtyList.concat(hottyList);
 
                   `,
       solveFor: 'naughtyHottyList[naughtyHottyList.length-1]',
    },
    {
       content: `
-                  var deadly = [@@, @@, @@, @@ ]
-                  var cuddly = [@@, @@, @@, @@, @@, @@]
-                  deadly.pop()
+                  const deadly = [@@, @@, @@, @@ ];
+                  const cuddly = [@@, @@, @@, @@, @@, @@];
+                  deadly.pop();
 
-                  cuddly = cuddly.concat(deadly)
-
-                  `,
-      solveFor: 'cuddly[##]',
-   },
-   {
-      content: `
-                  var deadly = [@@, @@, @@, @@ ]
-                  var cuddly = [@@, @@, @@, @@, @@, @@]
-                  deadly.pop()
-
-                  cuddly = deadly.concat(cuddly)
+                  cuddly = cuddly.concat(deadly);
 
                   `,
       solveFor: 'cuddly[##]',
    },
    {
       content: `
+                  const deadly = [@@, @@, @@, @@ ];
+                  const cuddly = [@@, @@, @@, @@, @@, @@];
+                  deadly.pop();
 
-               var letters = [~~, ~~, ~~]
-               var andNow = letters.join("")
+                  cuddly = deadly.concat(cuddly);
+
+                  `,
+      solveFor: 'cuddly[##]',
+   },
+   {
+      content: `
+
+               const letters = [~~, ~~, ~~];
+               let andNow = letters.join("");
                `,
       solveFor: 'andNow',
    },
    {
       content: `
 
-               var letters = [~~, ~~, ~~]
-               var butHere = letters.join("-")
+               const letters = [~~, ~~, ~~];
+               let butHere = letters.join("-");
                `,
       solveFor: 'butHere',
    },
    {
       content: `
 
-               var letters = [~~, ~~, ~~]
-               var maybeAlso = letters.join(~~)
+               const letters = [~~, ~~, ~~];
+               let maybeAlso = letters.join(~~);
                `,
       solveFor: 'maybeAlso',
    },
    {
       content: `
 
-               var letters = [~~, ~~, ~~]
-               var butUsually = letters.join()
+               const letters = [~~, ~~, ~~];
+               let butUsually = letters.join();
                `,
       solveFor: 'butUsually',
    },
    {
       content: `
 
-               var name = "Genevieve"
-               var splitUp = name.split('e')
+               let name = "Genevieve";
+               let splitUp = name.split('e');
                `,
       solveFor: 'splitUp[0]',
    },
    {
       content: `
 
-               var name = "Genevieve"
-               var splitUp = name.split('v')
+               let name = "Genevieve";
+               let splitUp = name.split('v');
                `,
       solveFor: 'splitUp[0]',
    },
    {
       content: `
 
-               var name = "Genevieve"
-               var splitUp = name.split('ev')
+               let name = "Genevieve";
+               let splitUp = name.split('ev');
                `,
       solveFor: 'splitUp[1]',
    },
    {
       content: `
 
-               var someStuff = "First Name, Last Name, Age, Height, Weight, Eye Color, DOB, Address, Organ Donor"
-               var likeThis = someStuff.split(', ')
+               let someStuff = "First Name, Last Name, Age, Height, Weight, Eye Color, DOB, Address, Organ Donor";
+               let likeThis = someStuff.split(', ');
                `,
       solveFor: 'likeThis[##]',
    },
    {
       content: `
 
-               var aSentence = !!
-               var orThis = aSentence.split(' ')
+               let aSentence = !!;
+               let orThis = aSentence.split(' ');
                `,
       solveFor: 'orThis[2]',
    },
@@ -249,8 +249,8 @@ export default [
       content: `
         // and finally, some weird nonsense
         
-         var passCode = "The " + $$ + @@ + " named " + ^^ + "!"
-         var parts = passCode.split('e')
+         let passCode = "The " + $$ + @@ + " named " + ^^ + "!";
+         let parts = passCode.split('e');
          `,
       solveFor: 'parts.length',
    },
