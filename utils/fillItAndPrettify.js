@@ -34,6 +34,7 @@ const fillIt = (codeString) => {
       newCodeString.indexOf('@@') >= 0 ||
       newCodeString.indexOf('^^') >= 0 ||
       newCodeString.indexOf('**') >= 0 ||
+      newCodeString.indexOf('%%') >= 0 ||
       newCodeString.indexOf('$$') >= 0 ||
       newCodeString.indexOf('~~') >= 0 ||
       newCodeString.indexOf('[(') >= 0 ||
@@ -51,6 +52,7 @@ const fillIt = (codeString) => {
       newCodeString = newCodeString.replace('$$', `"${randomAdj()}"`);
       newCodeString = newCodeString.replace('^^', `"${randomName()}"`);
       newCodeString = newCodeString.replace('**', `${Math.random() > 0.5 ? true : false}`);
+      newCodeString = newCodeString.replace('%%', `${Math.random() > 0.5 ? 'True' : 'False'}`);
       newCodeString = newCodeString.replace('@@', `"${randomAnimals()}"`);
       newCodeString = newCodeString.replace('~~', `"${randomChar()}"`);
       newCodeString = newCodeString.replace('!!', `"${randomSentence()}"`);

@@ -7,6 +7,7 @@ import { Context } from "./AppContext";
 import Editor from "react-simple-code-editor";
 import Feedback from "./Feedback.js";
 import evalCode from "../utils/evalCode";
+import evalPython, { initPyodide } from "../utils/evalPython";
 import fillItAndPrettify from "../utils/fillItAndPrettify";
 import io from "socket.io-client";
 import jsToPseudoCode from "../utils/jsToPseudoCode";
@@ -69,35 +70,70 @@ function CodeRead({
   index,
   maker,
 }) {
+  const router = useRouter();
+  const { id } = router.query;
+  const lang = id
+    ? id.startsWith("py-") ? "py" : id.includes("pseudo") ? "pseudo" : "js"
+    : "js";
+
+  const computePythonAnswer = (code, solvingFor, onReady) => {
+    evalPython(code, solvingFor).then((answer) => {
+      onReady(answer);
+    });
+  };
+
   const [state, setState] = React.useState({
-    code: fillItAndPrettify(content, maker),
+    code: fillItAndPrettify(content, maker || lang === "py"),
     solvingFor: fillItAndPrettify(solveFor, true),
     answered: false,
     correct: false,
     inputVal: "",
+    correctAnswer: null,
   });
+
+  // Recompute code with fresh random values on each new exercise
   React.useEffect(() => {
-    setState({
-      ...state,
-      code: fillItAndPrettify(content, maker),
-      solvingFor: fillItAndPrettify(solveFor, true),
-    });
-  }, [content, solveFor]);
+    const newCode = fillItAndPrettify(content, maker || lang === "py");
+    const newSolvingFor = fillItAndPrettify(solveFor, true);
+    setState((prev) => ({
+      ...prev,
+      code: newCode,
+      solvingFor: newSolvingFor,
+      correctAnswer: null,
+    }));
+    if (lang === "py") {
+      computePythonAnswer(newCode, newSolvingFor, (answer) => {
+        setState((prev) => ({ ...prev, correctAnswer: answer }));
+      });
+    }
+  }, [content, solveFor, lang, maker]);
+
+  // Kick off Pyodide download as soon as a Python workout is loaded
+  React.useEffect(() => {
+    if (lang === "py") initPyodide();
+  }, [lang]);
+
   const [store, setStore] = useContext(Context);
 
-  const router = useRouter();
-  const { id } = router.query;
-
   const gotIt = () => {
-    setState({
+    const newCode = fillItAndPrettify(content, maker || lang === "py");
+    const newSolvingFor = fillItAndPrettify(solveFor, true);
+    const base = {
       ...state,
       answered: false,
       correct: false,
       error: "",
-      code: fillItAndPrettify(content, maker),
-      solvingFor: fillItAndPrettify(solveFor, true),
+      code: newCode,
+      solvingFor: newSolvingFor,
       inputVal: "",
-    });
+      correctAnswer: null,
+    };
+    setState(base);
+    if (lang === "py") {
+      computePythonAnswer(newCode, newSolvingFor, (answer) => {
+        setState((prev) => ({ ...prev, correctAnswer: answer }));
+      });
+    }
   };
 
   const fitDigits = (num) => {
@@ -162,10 +198,14 @@ function CodeRead({
     }, 1500);
   };
 
-  const handleChange = (e, solvingFor, isPseudo) => {
+  const handleChange = (e, solvingFor) => {
     if (e.key === "Enter") {
+      const correctAnswer = lang === "py"
+        ? state.correctAnswer
+        : evalCode(state.code, solvingFor, lang);
       if (
-        evalCode(state.code, solvingFor, isPseudo).toLowerCase() ===
+        correctAnswer !== null &&
+        correctAnswer.toLowerCase() ===
           e.target.value.toLowerCase().trim() &&
         !state.answered
       ) {
@@ -202,20 +242,16 @@ function CodeRead({
 
   let shownCode = code;
   let shownSolvingFor = solveFor;
-  let pseudo = id ? id.includes("pseudo") : false;
-  if (pseudo) {
-    // console.count('coderead, pseudo');
+  if (lang === "pseudo") {
     shownCode = jsToPseudoCode(code);
     shownSolvingFor = jsToPseudoCode(solvingFor);
-  } else {
-    // console.count('coderead, not pseudo');
   }
 
   return (
     <CodeReadContainer>
       <Editor
         value={shownCode}
-        highlight={() => CodeHighlight(shownCode, store.theme)}
+        highlight={() => CodeHighlight(shownCode, store.theme, lang === "py" ? "python" : "javascript")}
         onValueChange={() => {}}
         padding={10}
         style={{
@@ -233,14 +269,14 @@ function CodeRead({
         {offsetFromMiddle === 0 ? (
           <div>
             <SolvingFor>
-              {shownSolvingFor.replace(";", "")} {pseudo ? `=` : `==`}
+              {shownSolvingFor.replace(";", "")} {lang === "js" ? `==` : `=`}
             </SolvingFor>
             <InputBox
               value={inputVal}
               w={answerLength > 10}
               autoFocus={!maker}
-              onChange={(e) => handleChange(e, state.solvingFor, pseudo)}
-              onKeyDown={(e) => handleChange(e, state.solvingFor, pseudo)}
+              onChange={(e) => handleChange(e, state.solvingFor)}
+              onKeyDown={(e) => handleChange(e, state.solvingFor)}
               type={answerType}
             />
             {store.currentIndex == 0 && !maker ? (
@@ -255,7 +291,8 @@ function CodeRead({
           gotIt={gotIt}
           code={code}
           solveFor={state.solvingFor}
-          isPseudo={pseudo}
+          lang={lang}
+          correctAnswer={state.correctAnswer}
         />
       </BottomContainer>
       {complexity ? (
@@ -263,7 +300,7 @@ function CodeRead({
           tagsUsed={tagsUsed}
           complexity={complexity}
           maker={maker}
-          pseudo={pseudo}
+          lang={lang}
         />
       ) : null}
     </CodeReadContainer>

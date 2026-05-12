@@ -60,10 +60,11 @@ export default function showFeedBack({
    gotIt,
    code,
    solveFor,
-   isPseudo,
+   lang,
+   correctAnswer,
 }) {
    if (answered) {
-      const answer = evalCode(code, solveFor, isPseudo);
+      const answer = lang === 'py' ? correctAnswer : evalCode(code, solveFor, lang);
       if (correct) {
          return (
             <FeedBackRight>

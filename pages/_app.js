@@ -1,4 +1,5 @@
 import '../public/styles.css';
+import '@fontsource/orbitron';
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';

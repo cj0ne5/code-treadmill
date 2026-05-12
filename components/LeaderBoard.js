@@ -71,10 +71,10 @@ const LeaderBoard = ({}) => {
             setResults(raceStats);
          });
          socket.on(store.raceID + '-raceEnded', (endTime) => {
-            setStore({ ...store, raceID: null, endTime });
+            setStore(s => ({ ...s, raceID: null, endTime }));
          });
       }
-   }, [store.currentIndex, store.raceID]);
+   }, [store.currentIndex, store.raceID, setStore]);
 
    const resultsList = Object.keys(results)
       .map((competitorKey, i) => results[competitorKey])

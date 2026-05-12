@@ -52,9 +52,9 @@ const Tag = styled.a`
    }
 `;
 
-function CodeReadInfo({ tagsUsed, complexity, maker, pseudo }) {
+function CodeReadInfo({ tagsUsed, complexity, maker, lang }) {
    const [store, setStore] = useContext(Context);
-   if (pseudo) {
+   if (lang === 'pseudo') {
       return (
          <InfoBar maker={maker}>
             <div>

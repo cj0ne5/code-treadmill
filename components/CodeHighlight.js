@@ -1,10 +1,9 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import React, { Fragment } from "react";
 
-function CodeHighlight(code, t) {
-  // console.log(t);
+function CodeHighlight(code, t, language = "javascript") {
   return (
-    <Highlight {...defaultProps} theme={t} code={code} language="javascript">
+    <Highlight {...defaultProps} theme={t} code={code} language={language}>
       {({ tokens, getLineProps, getTokenProps }) => (
         <Fragment>
           {tokens.map((line, i) => (

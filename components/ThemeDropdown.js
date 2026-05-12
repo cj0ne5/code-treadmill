@@ -31,21 +31,29 @@ function Dropdown() {
    const [store, setStore] = useContext(Context);
 
    useEffect(function () {
-      let themeNum = window.localStorage.getItem('theme');
+      const themeNum = window.localStorage.getItem('theme');
       if (themeNum) {
-         setTheme(themeNum);
+         import('../themes/' + options[themeNum].name + '.cjs.js').then(({ default: newTheme }) => {
+            setStore(s => ({
+               ...s,
+               theme: hexThemeColors(newTheme),
+               themeName: options[themeNum].name,
+               themeType: options[themeNum].type,
+               themeNum,
+            }));
+         });
       }
-   }, []);
+   }, [setStore]);
 
    const setTheme = async (i) => {
       const newTheme = (await import('../themes/' + options[i].name + '.cjs.js')).default;
-      setStore({
-         ...store,
+      setStore(s => ({
+         ...s,
          theme: hexThemeColors(newTheme),
          themeName: options[i].name,
          themeType: options[i].type,
          themeNum: i,
-      });
+      }));
    };
 
    const handleChange = async (i) => {

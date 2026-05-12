@@ -11,6 +11,13 @@ const workouts = [
    { lang: 'pseudo', workout: 'lists' },
    { lang: 'pseudo', workout: 'loops' },
    { lang: 'pseudo', workout: 'traversals' },
+   { lang: 'py', workout: 'variables' },
+   { lang: 'py', workout: 'conditionals' },
+   { lang: 'py', workout: 'functions' },
+   { lang: 'py', workout: 'lists' },
+   { lang: 'py', workout: 'loops' },
+   { lang: 'py', workout: 'scope' },
+   { lang: 'py', workout: 'traversals' },
 ];
 
 export default workouts;

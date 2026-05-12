@@ -63,32 +63,32 @@ const RaceJoin = ({}) => {
     } else {
       socket.on("welcome", (userName) => {
         if (userName === store.userName) {
-          setState({ ...state, joined: true, message: null });
+          setState(s => ({ ...s, joined: true, message: null }));
         }
       });
       socket.on("woops", (userName) => {
         if (userName === store.userName) {
-          setState({ ...state, joined: false, message: "Invalid join code" });
+          setState(s => ({ ...s, joined: false, message: "Invalid join code" }));
         }
       });
       socket.on("raceBegan", (raceID, startTime, raceRoute) => {
         if (store.raceID === raceID) {
-          setStore({
-            ...store,
+          setStore(s => ({
+            ...s,
             startTime,
             raceWorkout: raceRoute,
             workout: raceRoute,
             score: 0,
             currentIndex: 0,
             progress: 0,
-          });
+          }));
           router.push(
             "/" + raceRoute + "?raceID=" + raceID + "&uName=" + store.userName
           );
         }
       });
     }
-  }, [store.raceID, store.userName]);
+  }, [store.raceID, store.userName, router, setStore]);
 
   const handleJoin = () => {
     //this next line ensures unique results among same named competitors

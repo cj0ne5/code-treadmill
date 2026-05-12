@@ -32,13 +32,6 @@ export default class MyDocument extends Document {
       return (
          <Html>
             <Head>
-               {/* This gives it orbitron at first paint */}
-               <link
-                  rel='stylesheet'
-                  type='text/css'
-                  href='//fonts.googleapis.com/css?family=Orbitron'
-               />
-
                {/* Global site tag (gtag.js) - Google Analytics */}
                <script async src={`https://www.googletagmanager.com/gtag/js?id=G-FCRXD9SM0E`} />
                <script

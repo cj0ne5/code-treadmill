@@ -38,24 +38,25 @@ export function AppContext(props) {
          console.log('import workout');
          let themeNum = window.localStorage.getItem('theme') || 0;
          const newTheme = (await import('../themes/' + options[themeNum].name + '.cjs.js')).default;
-         setStore({
-            ...store,
+         const lang = route.startsWith('py-') ? 'py' : 'js';
+         setStore(s => ({
+            ...s,
             workout: route ? route : '',
             raceID: raceID,
             raceWorkout: raceID ? route : '',
             userName: uName,
-            slides: tagAndWeightCode(workoutExercises.default),
+            slides: tagAndWeightCode(workoutExercises.default, lang),
             leftAligned: window.innerWidth < 900 ? false : true,
             theme: hexThemeColors(newTheme),
             themeName: options[themeNum].name,
             themeType: options[themeNum].type,
             themeNum: themeNum,
-         });
+         }));
       }
       if (props.route) {
          importWorkout();
       }
-   }, [props.route]);
+   }, [props.route, props.raceID, props.uName]);
 
    return (
       <ThemeProvider theme={store.theme}>

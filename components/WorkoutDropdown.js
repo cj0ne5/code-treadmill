@@ -76,6 +76,17 @@ function WorkoutDropdown({ isRace, setRaceWorkout }) {
                   }
                })}
             </optgroup>
+            <optgroup label='Python'>
+               {workoutOptions.map(({ lang, workout }, i) => {
+                  if (lang === 'py') {
+                     return (
+                        <option key={i} value={lang + '-' + workout}>
+                           {workout}
+                        </option>
+                     );
+                  }
+               })}
+            </optgroup>
          </Select>
       </div>
    );
