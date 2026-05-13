@@ -154,7 +154,7 @@ export default [
    {
       content: `
                   const deadly = [@@, @@, @@, @@ ];
-                  const cuddly = [@@, @@, @@, @@, @@, @@];
+                  let cuddly = [@@, @@, @@, @@, @@, @@];
                   deadly.pop();
 
                   cuddly = cuddly.concat(deadly);
@@ -165,7 +165,7 @@ export default [
    {
       content: `
                   const deadly = [@@, @@, @@, @@ ];
-                  const cuddly = [@@, @@, @@, @@, @@, @@];
+                  let cuddly = [@@, @@, @@, @@, @@, @@];
                   deadly.pop();
 
                   cuddly = deadly.concat(cuddly);
